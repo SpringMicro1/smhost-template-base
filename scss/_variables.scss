@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:200,300,400");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Jost&display=swap");
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-rounded: true !default;
+$enable-shadows: true;
+$enable-transitions: true;
+$enable-hover-media-query: false;
+$enable-grid-classes: true;
+$enable-print-styles: true;
+
+// Variables
+//
+// Colors
+$theme-colors: (
+  primary: #12bbad,
+  secondary: #4f70ce,
+  light: #f3f3f3,
+  dark: #151515,
+  grey: #333,
+  info: #aaa,
+  white: #fff,
+  success: #28a745,
+  warning: #ffc107,
+  danger: #dc3545,
+);
+
+$body-bg: map-get($theme-colors, "grey");
+$body-color: #fff;
+$body-color-inverse: invert($body-color) !default;
+$link-color: map-get($theme-colors, "primary");
+
+.bg-urgent {
+  color: map-get($theme-colors, "white");
+  // Stripes https://css-tricks.com/stripes-css/
+  background: repeating-linear-gradient(
+    45deg,
+    map-get($theme-colors, "danger"),
+    map-get($theme-colors, "danger") 10px,
+    map-get($theme-colors, "danger-dark") 10px,
+    map-get($theme-colors, "danger-dark") 20px
+  ) !important;
+}
+
+// Fonts
+$font-family-base: "Roboto", sans-serif;
+$display-font-family: "Roboto", sans-serif;
+$lead-font-size: 1.3rem;
+$font-size-base: 1rem;
+$font-weight-light: 300;
+$font-weight-normal: 200;
+$font-weight-bold: 700;
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.5;
+$headings-font-family: "Jost", sans-serif; // Heading font
+$headings-font-weight: $font-weight-normal;
+$headings-line-height: 1.2;
+
+$spacer: 1.5rem;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+);
+
+// Components
+$border-width: 1px !default;
+
+// Buttons
+$input-btn-padding-y-lg: 0.55rem;
+$input-btn-padding-x-lg: 1.2rem;
+$input-btn-padding-x: 1rem !default;
+
+// Cards
+$card-border-width: 0px;
+$card-bg: map-get($theme-colors, "dark");
+
+// Breadcrumb
+$breadcrumb-bg: transparent !default;
+
+// Carousel
+$carousel-caption-width: 100% !default;
+$carousel-indicator-height: 6px !default;
+
+// Navigation
+$navbar-height: 64px;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Bootstrap overrides
+//
+// Buttons
+.btn-link {
+  padding: 0 !important;
+  vertical-align: unset !important;
+}
+.btn-link:active,
+.btn-link:focus,
+.btn-link.focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-outline-light:hover,
+.btn-outline-light:active {
+  background-color: rgba(243, 243, 243, 0.1);
+}
+// Containers
+@media all and (min-width: 1200px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 1140px;
+  }
+}
