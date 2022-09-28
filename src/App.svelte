@@ -191,217 +191,217 @@
     </header>
   {/if}
 
-{#if !(query.quoteID && query.quoteEmail)}
-  {#if window.pageElements?.plans}
-    <section id="hosting">
-      <div class="row my-4 justify-content-around hosting-row text-center">
-        <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-md-5">
-          <div class="bg-light d-flex flex-column plan">
-            <h3 class="pb-3 border-bottom">
-              Single Website Hosting<br />
-                <img src="images/fish-goldfish.png" alt="goldfish" class="small hosting-image" />
-            </h3>
-            <h3 class="mb-0 pb-2 text-primary">$3.00/mo</h3>
-            <p class="pb-3 border-bottom text-secondary">
-              All the basics for starting a single small website.
-            </p>
-            <ul class="text-lg-right list-unstyled">
-              <li class="mb-1">Starter Instances</li>
-              <li class="mb-1">SSL Certificate</li>
-              <li class="mb-1">Email Support</li>
-              <li class="mb-1">Template Customizations</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-4">
-          <div class="bg-light d-flex flex-column plan">
-            <h3 class="pb-3 border-bottom">
-              Multiple Website Hosting<br />
-                <img src="images/fish-marlin.png" alt="marlin" class="medium hosting-image" />
-            </h3>
-            <h3 class="mb-0 pb-2 text-primary">$4.17/mo</h3>
-            <p class="pb-3 border-bottom text-secondary">
-              All the basics for starting/hosting up to 3 websites.
-            </p>
-            <ul class="text-lg-right list-unstyled">
-              <li class="mb-1">Starter Instances</li>
-              <li class="mb-1">SSL Certificates</li>
-              <li class="mb-1">Email Support</li>
-              <li class="mb-1">Template Customizations</li>
-              <li class="mb-1">Personal Manager</li>
-              <li class="mb-1">Backups</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-md-0 mt-4">
-          <div class="bg-light d-flex flex-column plan">
-            <h3 class="pb-3 border-bottom">
-              Enterprise Website Hosting<br />
-                <img src="images/fish-whale.png" alt="whale" class="large hosting-image" />
-            </h3>
-            <h3 class="mb-0 pb-2 text-primary">Get a Quote</h3>
-            <p class="pb-3 border-bottom text-secondary">
-              For custom web development needs.
-            </p>
-            <ul class="text-lg-right list-unstyled">
-              <li class="mb-1">Large Instances</li>
-              <li class="mb-1">SSL Certificates</li>
-              <li class="mb-1">Email and Phone Support</li>
-              <li class="mb-1">Personal Manager</li>
-              <li class="mb-1">Backups</li>
-              <li class="mb-1">Custom Web Development</li>
-            </ul>
-            <a class="btn mt-auto btn-block btn-secondary btn-lg" href={window.pageElements?.requestQuote ? "#contact" : "/#contact"}>
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  {/if}
-
-<script>
-function hide(evt) {
-  // evt.target refers to the clicked <li> element
-  // This is different than evt.currentTarget, which would refer to the parent <ul> in this context
-  if (evt.target.parentElement.parentElement.style.width == "100%")
-    evt.target.parentElement.parentElement.style.width = ""
-  else 
-    evt.target.parentElement.parentElement.style.width = "100%"
-}
-</script>
-
-  <section id="templates" class="mt-5 pt-1">
-    {#if window.pageElements?.templateGrid}
-      <h2 class="h1 text-center mb-3">Pick A Template</h2>
-
-      <div
-        id="template-grid"
-        class="row flex-wrap justify-content-center gx-2 gy-2"
-      >
-        {#each templates as t}
-          <div class="col-lg-4 col-sm-6 col-12">
-            <div class="card">
-              <img
-                onclick="hide(event)"
-                src={`/images/templates/${t.image}`}
-                class="card-img-top"
-                alt={t.image}
-              />
-              <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="card-title">{t.image.split(".")[0]}</h5>
-                <button
-                  on:click={() => {
-                    template = t.image.split(".")[0];
-                    document.getElementById("contact").scrollIntoView();
-                  }}
-                  class="btn btn-primary text-white"
-                >
-                  Select Template
-                </button>
-              </div>
+  {#if !(query.quoteID && query.quoteEmail)}
+    {#if window.pageElements?.plans}
+      <section id="hosting">
+        <div class="row my-4 justify-content-around hosting-row text-center">
+          <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-md-5">
+            <div class="bg-light d-flex flex-column plan">
+              <h3 class="pb-3 border-bottom">
+                Single Website Hosting<br />
+                  <img src="images/fish-goldfish.png" alt="goldfish" class="small hosting-image" />
+              </h3>
+              <h3 class="mb-0 pb-2 text-primary">$3.00/mo</h3>
+              <p class="pb-3 border-bottom text-secondary">
+                All the basics for starting a single small website.
+              </p>
+              <ul class="text-lg-right list-unstyled">
+                <li class="mb-1">Starter Instances</li>
+                <li class="mb-1">SSL Certificate</li>
+                <li class="mb-1">Email Support</li>
+                <li class="mb-1">Template Customizations</li>
+              </ul>
             </div>
           </div>
-        {/each}
-      </div>
+          <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-4">
+            <div class="bg-light d-flex flex-column plan">
+              <h3 class="pb-3 border-bottom">
+                Multiple Website Hosting<br />
+                  <img src="images/fish-marlin.png" alt="marlin" class="medium hosting-image" />
+              </h3>
+              <h3 class="mb-0 pb-2 text-primary">$4.17/mo</h3>
+              <p class="pb-3 border-bottom text-secondary">
+                All the basics for starting/hosting up to 3 websites.
+              </p>
+              <ul class="text-lg-right list-unstyled">
+                <li class="mb-1">Starter Instances</li>
+                <li class="mb-1">SSL Certificates</li>
+                <li class="mb-1">Email Support</li>
+                <li class="mb-1">Template Customizations</li>
+                <li class="mb-1">Personal Manager</li>
+                <li class="mb-1">Backups</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-md-0 mt-4">
+            <div class="bg-light d-flex flex-column plan">
+              <h3 class="pb-3 border-bottom">
+                Enterprise Website Hosting<br />
+                  <img src="images/fish-whale.png" alt="whale" class="large hosting-image" />
+              </h3>
+              <h3 class="mb-0 pb-2 text-primary">Get a Quote</h3>
+              <p class="pb-3 border-bottom text-secondary">
+                For custom web development needs.
+              </p>
+              <ul class="text-lg-right list-unstyled">
+                <li class="mb-1">Large Instances</li>
+                <li class="mb-1">SSL Certificates</li>
+                <li class="mb-1">Email and Phone Support</li>
+                <li class="mb-1">Personal Manager</li>
+                <li class="mb-1">Backups</li>
+                <li class="mb-1">Custom Web Development</li>
+              </ul>
+              <a class="btn mt-auto btn-block btn-secondary btn-lg" href={window.pageElements?.requestQuote ? "#contact" : "/#contact"}>
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     {/if}
 
-    {#if window.pageElements?.requestQuote}
-      <form
-        id="contact"
-        name="contact"
-        class="mt-5 py-1"
-        on:submit={submitContact}
-        method="POST"
-        data-netlify={true}
-      >
-        <h2 class="h1 text-center">Request A Quote</h2>
+    <script>
+      function hide(evt) {
+        // evt.target refers to the clicked <li> element
+        // This is different than evt.currentTarget, which would refer to the parent <ul> in this context
+        if (evt.target.parentElement.parentElement.style.width == "100%")
+          evt.target.parentElement.parentElement.style.width = ""
+        else 
+          evt.target.parentElement.parentElement.style.width = "100%"
+      }
+    </script>
 
-        <!-- For the netlify bots -->
-        <input type="hidden" name="form-name" value="contact" />
+    <section id="templates" class="mt-5 pt-1">
+      {#if window.pageElements?.templateGrid}
+        <h2 class="h1 text-center mb-3">Pick A Template</h2>
 
-        <div class="mb-3 mx-auto">
-          <label for="fullname" class="form-label">Full Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fullname"
-            name="fullname"
-            placeholder="John Doe"
-            required="true"
-            aria-required="true"
-          />
+        <div
+          id="template-grid"
+          class="row flex-wrap justify-content-center gx-2 gy-2"
+        >
+          {#each templates as t}
+            <div class="col-lg-4 col-sm-6 col-12">
+              <div class="card">
+                <img
+                  onclick="hide(event)"
+                  src={`/images/templates/${t.image}`}
+                  class="card-img-top"
+                  alt={t.image}
+                />
+                <div class="card-body d-flex flex-column align-items-center">
+                  <h5 class="card-title">{t.image.split(".")[0]}</h5>
+                  <button
+                    on:click={() => {
+                      template = t.image.split(".")[0];
+                      document.getElementById("contact").scrollIntoView();
+                    }}
+                    class="btn btn-primary text-white"
+                  >
+                    Select Template
+                  </button>
+                </div>
+              </div>
+            </div>
+          {/each}
         </div>
-        <div class="mb-3 mx-auto">
-          <label for="email" class="form-label">Email Address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            placeholder="name@example.com"
-            required="true"
-            aria-required="true"
-          />
-        </div>
-        <div class="mb-3 mx-auto">
-          <label for="template" class="form-label">Preferred Template
-            {#if window.pageElements?.templateLinks}
-              (<a href="/templates">
-                Browse Templates
-              </a>)
-            {/if}
-          </label>
-          <select
-            class="form-select"
-            id="template"
-            name="template"
-            required="true"
-            aria-required="true"
-          >
-            {#each templates as t}
-              <option
-                value={t.image.split(".")[0]}
-                selected={template === t.image.split(".")[0]}
-              >
-                {t.image.split(".")[0]}
-              </option>
-            {/each}
-          </select>
-        </div>
-        <div class="mb-3 mx-auto">
-          <label for="brand-color" class="form-label">
-            Select Brand Color <em class="text-muted">(optional)</em>
-          </label>
-          <input
-            type="color"
-            class="form-control p-0"
-            id="brand-color"
-            name="brand-color"
-            style="width: 32px"
-          />
-        </div>
+      {/if}
 
-        <div class="mb-3 mx-auto">
-          <label for="message" class="form-label">Message</label>
-          <textarea
-            class="form-control"
-            id="message"
-            name="message"
-            rows="3"
-            placeholder="What would you like for your website?"
-            required="true"
-            aria-required="true"
-          />
-        </div>
+      {#if window.pageElements?.requestQuote}
+        <form
+          id="contact"
+          name="contact"
+          class="mt-5 py-1"
+          on:submit={submitContact}
+          method="POST"
+          data-netlify={true}
+        >
+          <h2 class="h1 text-center">Request A Quote</h2>
 
-        <div class="mb-3 mx-auto">
-          <button type="submit" class="btn btn-primary text-white">Submit</button>
-          <p id="my-form-status" class="my-2" />
-        </div>
-      </form>
-    {/if}
-  </section>
+          <!-- For the netlify bots -->
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="mb-3 mx-auto">
+            <label for="fullname" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullname"
+              name="fullname"
+              placeholder="John Doe"
+              required="true"
+              aria-required="true"
+            />
+          </div>
+          <div class="mb-3 mx-auto">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="name@example.com"
+              required="true"
+              aria-required="true"
+            />
+          </div>
+          <div class="mb-3 mx-auto">
+            <label for="template" class="form-label">Preferred Template
+              {#if window.pageElements?.templateLinks}
+                (<a href="/templates">
+                  Browse Templates
+                </a>)
+              {/if}
+            </label>
+            <select
+              class="form-select"
+              id="template"
+              name="template"
+              required="true"
+              aria-required="true"
+            >
+              {#each templates as t}
+                <option
+                  value={t.image.split(".")[0]}
+                  selected={template === t.image.split(".")[0]}
+                >
+                  {t.image.split(".")[0]}
+                </option>
+              {/each}
+            </select>
+          </div>
+          <div class="mb-3 mx-auto">
+            <label for="brand-color" class="form-label">
+              Select Brand Color <em class="text-muted">(optional)</em>
+            </label>
+            <input
+              type="color"
+              class="form-control p-0"
+              id="brand-color"
+              name="brand-color"
+              style="width: 32px"
+            />
+          </div>
+
+          <div class="mb-3 mx-auto">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="3"
+              placeholder="What would you like for your website?"
+              required="true"
+              aria-required="true"
+            />
+          </div>
+
+          <div class="mb-3 mx-auto">
+            <button type="submit" class="btn btn-primary text-white">Submit</button>
+            <p id="my-form-status" class="my-2" />
+          </div>
+        </form>
+      {/if}
+    </section>
   {/if}
 
   {#if window.pageElements?.templateLinks}
