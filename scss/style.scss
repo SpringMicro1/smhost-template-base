@@ -1,9 +1,10 @@
 /* 
-To apply changes to the springmicro website, use these commands in the terminal:
-ctrl+C (if needed, type "y" after)
-npm run build
-npm run dev
+TODO
+make other page elements grow as you scroll, too
+
 */
+
+
 
 @import "./variables.scss";
 
@@ -213,20 +214,25 @@ svg#waterfall-animation path {
   height: 100%;
   --bs-bg-opacity: 0.6;
   border: 2px solid;
-  padding: 2.25rem;
-  transition: animation-delay 0.25s ease-in-out;
-  
+  padding: 2.25rem;  
   animation: scrolling-plan 1s paused forwards linear;
+  
+  @media only screen and (min-width: 768px) {
+    animation: none;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      padding: 4.5rem; 
+      margin: -2.25rem;
+      height: calc(100% + 4.5rem);
+    }
+  }
+
   @keyframes scrolling-plan {
     100% {
       padding: 4.5rem; 
       margin: -2.25rem;
       height: calc(100% + 4.5rem);
     }
-  }
-  
-  &:hover {
-    animation-delay: -1s !important;
   }
 
   h3 {
@@ -297,7 +303,7 @@ svg#waterfall-animation path {
   }
 }
 
-.form-select {
+.form-select, .form-select:focus, .form-control, .form-control:focus {
   color: map-get($theme-colors, "dark");
 }
 

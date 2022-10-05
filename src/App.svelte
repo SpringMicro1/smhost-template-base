@@ -395,7 +395,7 @@
             />
           </div>
 
-          <div class="mb-3 mx-auto">
+          <div class="mb-3 mx-auto text-end">
             <button type="submit" class="btn btn-primary text-white">Submit</button>
             <p id="my-form-status" class="my-2" />
           </div>
@@ -451,12 +451,14 @@
               />
             </div>
           </div>
-          <button
-            type="submit"
-            class="my-3 btn btn-primary text-white d-block fs-4"
-          >
-            Pay Now
-          </button>
+          <div class="text-end">
+            <button
+              type="submit"
+              class="my-3 btn btn-primary text-white fs-4"
+            >
+              Pay Now
+            </button>
+          </div>
         </form>
       </div>
       <div id="paypal-buttons" class="mx-4"></div>
