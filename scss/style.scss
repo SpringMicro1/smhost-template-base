@@ -99,6 +99,7 @@ html {
 
 .slide-border {
   position: absolute;
+  pointer-events: none;
 }
 
 .slide-border.left {
@@ -125,42 +126,42 @@ html {
   height: 2px;
 }
 
-*:not(:hover) > .slide-border.left {
+.nav-link:not(:hover) ~ .slide-border.left {
   height: 0;
   transition: height 0.15s 0.15s ease-out, background-color 0.4s ease-in-out;
 }
 
-*:not(:hover) > .slide-border.right {
+.nav-link:not(:hover) ~ .slide-border.right {
   height: 0;
   transition: height 0.15s ease-in, background-color 0.4s ease-in-out;
 }
 
-*:not(:hover) > .slide-border.bottom {
+.nav-link:not(:hover) ~ .slide-border.bottom {
   width: 0;
   transition: width 0.15s 0.15s ease-out, background-color 0.4s ease-in-out;
 }
 
-*:not(:hover) > .slide-border.top {
+.nav-link:not(:hover) ~ .slide-border.top {
   width: 0;
   transition: width 0.15s ease-in, background-color 0.4s ease-in-out;
 }
 
-*:hover > .slide-border.left {
+.nav-link:hover ~ .slide-border.left {
   height: 100%;
   transition: height 0.15s ease-in, background-color 0.4s ease-in-out;
 }
 
-*:hover > .slide-border.right {
+.nav-link:hover ~ .slide-border.right {
   height: 100%;
   transition: height 0.15s 0.15s ease-out, background-color 0.4s ease-in-out;
 }
 
-*:hover > .slide-border.bottom {
+.nav-link:hover ~ .slide-border.bottom {
   width: 100%;
   transition: width 0.15s ease-in, background-color 0.4s ease-in-out;
 }
 
-*:hover > .slide-border.top {
+.nav-link:hover ~ .slide-border.top {
   width: 100%;
   transition: width 0.15s 0.15s ease-out;
 }
@@ -212,14 +213,24 @@ svg#waterfall-animation path {
 .plan {
   border-radius: 1rem;
   height: 100%;
+  overflow: hidden;
   --bs-bg-opacity: 0.6;
   border: 2px solid;
   padding: 2.25rem;  
   animation: scrolling-plan 1s paused forwards linear;
-  
+  background: linear-gradient(to bottom, transparent 45%, #4688 55%, #468f);
+
   @media only screen and (min-width: 768px) {
     animation: none;
     transition: all 0.25s ease-in-out;
+    &:hover {
+      padding: 3.5rem; 
+      margin: -1.25rem;
+      height: calc(100% + 2.5rem);
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
     &:hover {
       padding: 4.5rem; 
       margin: -2.25rem;
@@ -229,9 +240,9 @@ svg#waterfall-animation path {
 
   @keyframes scrolling-plan {
     100% {
-      padding: 4.5rem; 
-      margin: -2.25rem;
-      height: calc(100% + 4.5rem);
+      padding: 3rem 4.5rem; 
+      margin: -0.75rem -2.25rem;
+      height: calc(100% + 1.5rem);
     }
   }
 
@@ -257,6 +268,12 @@ svg#waterfall-animation path {
     background-color: #fff4;
     box-shadow: 0 0 80px 80px #fff4;
   }
+
+  // h3:not(.text-primary), ul {
+  //   // background-color: #0002;
+  //   // box-shadow: 0 0 80px 80px #0002;
+  //   text-shadow: 0 0 4px #000f;
+  // }
 }
 
 #top {

@@ -56,6 +56,7 @@
   function bodyLoaded () {
     startWaterAnimation()
     listenForScrollingLinks()
+    scrollAnimations()
   }
 
   function startWaterAnimation () {
@@ -119,11 +120,18 @@
     }, 100)
   }
 
-  document.addEventListener("scroll", ()=>{
+  function scrollAnimations () {
     document.querySelectorAll(".plan").forEach(element=>{
-      element.style.animationDelay = `-${1 - (Math.min(Math.max(element.getBoundingClientRect().top, window.innerHeight - element.getBoundingClientRect().bottom), window.innerHeight / 2) / (window.innerHeight/2))}s`
+      // element.style.animationDelay = `-${1 - (Math.min(Math.max(element.getBoundingClientRect().top, window.innerHeight - element.getBoundingClientRect().bottom), window.innerHeight / 2) / (window.innerHeight/2))}s`
+      element.style.animationDelay = `-${1 - (Math.min(element.getBoundingClientRect().top, window.innerHeight / 2) / (window.innerHeight/2))}s`
     })
-  })
+    // document.querySelectorAll(".scroll-effect").forEach(element=>{
+    //   // causes everything to shrink as it nears the bottom of the page, cool effect, but kinda weird
+    //   element.style.transform = `scale(${1.15 - (Math.max(element.getBoundingClientRect().top, window.innerHeight / 2) / (window.innerHeight/2) * 0.15)})`
+    // })
+  }
+  document.addEventListener("scroll", scrollAnimations)
+  document.addEventListener("resize", scrollAnimations)
 </script>
 <div id="waterfall-container">
   <svg id="waterfall-animation" xmlns="http://www.w3.org/2000/svg" viewBox="100 0 1000 3000">
@@ -166,7 +174,6 @@
           <span class="slide-border bottom"></span>    <span class="slide-border left"></span>    <span class="slide-border right"></span>    <span class="slide-border top"></span>
         </li>
       </ul>
-      <span class="text-primary fw-bold"><i>Beta Version</i></span>
     </div>
   </div>
 </nav>
@@ -196,7 +203,7 @@
       <section id="hosting">
         <div class="row my-4 justify-content-around hosting-row text-center">
           <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-md-5">
-            <div class="bg-light d-flex flex-column plan">
+            <div class="bg-light d-flex flex-column plan scroll-effect">
               <h3 class="pb-3 border-bottom">
                 Single Website Hosting<br />
                   <img src="images/fish-goldfish.png" alt="goldfish" class="small hosting-image" />
@@ -214,7 +221,7 @@
             </div>
           </div>
           <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-4">
-            <div class="bg-light d-flex flex-column plan">
+            <div class="bg-light d-flex flex-column plan scroll-effect">
               <h3 class="pb-3 border-bottom">
                 Multiple Website Hosting<br />
                   <img src="images/fish-marlin.png" alt="marlin" class="medium hosting-image" />
@@ -234,7 +241,7 @@
             </div>
           </div>
           <div class="col-10 col-sm-9 col-md-4 col-lg-3 mt-md-0 mt-4">
-            <div class="bg-light d-flex flex-column plan">
+            <div class="bg-light d-flex flex-column plan scroll-effect">
               <h3 class="pb-3 border-bottom">
                 Enterprise Website Hosting<br />
                   <img src="images/fish-whale.png" alt="whale" class="large hosting-image" />
@@ -261,7 +268,7 @@
     {/if}
 
     <script>
-      function hide(evt) {
+      function enlarge(evt) {
         // evt.target refers to the clicked <li> element
         // This is different than evt.currentTarget, which would refer to the parent <ul> in this context
         if (evt.target.parentElement.parentElement.style.width == "100%")
@@ -283,9 +290,9 @@
             <div class="col-lg-4 col-sm-6 col-12">
               <div class="card">
                 <img
-                  onclick="hide(event)"
+                  onclick="enlarge(event)"
                   src={`/images/templates/${t.image}`}
-                  class="card-img-top"
+                  class="card-img-top scroll-effect"
                   alt={t.image}
                 />
                 <div class="card-body d-flex flex-column align-items-center">
@@ -315,12 +322,12 @@
           method="POST"
           data-netlify={true}
         >
-          <h2 class="h1 text-center">Request A Quote</h2>
+          <h2 class="h1 text-center scroll-effect">Request A Quote</h2>
 
           <!-- For the netlify bots -->
           <input type="hidden" name="form-name" value="contact" />
 
-          <div class="mb-3 mx-auto">
+          <div class="mb-3 mx-auto scroll-effect">
             <label for="fullname" class="form-label">Full Name</label>
             <input
               type="text"
@@ -332,7 +339,7 @@
               aria-required="true"
             />
           </div>
-          <div class="mb-3 mx-auto">
+          <div class="mb-3 mx-auto scroll-effect">
             <label for="email" class="form-label">Email Address</label>
             <input
               type="email"
@@ -344,7 +351,7 @@
               aria-required="true"
             />
           </div>
-          <div class="mb-3 mx-auto">
+          <div class="mb-3 mx-auto scroll-effect">
             <label for="template" class="form-label">Preferred Template
               {#if window.pageElements?.templateLinks}
                 (<a href="/templates">
@@ -369,7 +376,7 @@
               {/each}
             </select>
           </div>
-          <div class="mb-3 mx-auto">
+          <div class="mb-3 mx-auto scroll-effect">
             <label for="brand-color" class="form-label">
               Select Brand Color <em class="text-muted">(optional)</em>
             </label>
@@ -382,7 +389,7 @@
             />
           </div>
 
-          <div class="mb-3 mx-auto">
+          <div class="mb-3 mx-auto scroll-effect">
             <label for="message" class="form-label">Message</label>
             <textarea
               class="form-control"
@@ -395,7 +402,7 @@
             />
           </div>
 
-          <div class="mb-3 mx-auto text-end">
+          <div class="mb-3 mx-auto text-end scroll-effect">
             <button type="submit" class="btn btn-primary text-white">Submit</button>
             <p id="my-form-status" class="my-2" />
           </div>
@@ -405,7 +412,7 @@
   {/if}
 
   {#if window.pageElements?.templateLinks}
-    <div class="d-block text-center">
+    <div class="d-block text-center scroll-effect">
         <a href="/templates">
         <button class="my-3 btn btn-primary text-white fs-4">
           Browse Templates
@@ -416,14 +423,14 @@
 
   {#if window.pageElements?.purchasePlan}
     <section id="pay" class="my-5 pt-1">
-      <h2 class="h1 text-center mb-3">Purchase a Plan</h2>
+      <h2 class="h1 text-center mb-3 scroll-effect">Purchase a Plan</h2>
       <div class="container-fluid">
         <div
           id="paypal-message"
           class="d-flex flex-column align-items-center"
         ></div>
         <form id="quote-form" action="/#pay">
-          <div class="row mb-2">
+          <div class="row mb-2 scroll-effect">
             <label for="quoteID" class="col-sm-3 col-form-label fs-4"
               >Quote ID</label
             >
@@ -437,7 +444,7 @@
               />
             </div>
           </div>
-          <div class="row">
+          <div class="row scroll-effect">
             <label for="quoteEmail" class="col-sm-3 col-form-label fs-4"
               >Email</label
             >
@@ -451,7 +458,7 @@
               />
             </div>
           </div>
-          <div class="text-end">
+          <div class="text-end scroll-effect">
             <button
               type="submit"
               class="my-3 btn btn-primary text-white fs-4"
