@@ -1,0 +1,40 @@
+---
+import { Picture } from "@astrojs/image/components";
+import heroImage from "assets/spring.png";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon";
+import {HERO} from "config";
+const {TEXT, LINKS} = HERO;
+---
+
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-6 md:order-1 hidden md:block">
+    <Picture
+      src={heroImage}
+      alt="Astronaut in the air"
+      widths={[200, 350, 500]}
+      aspectRatio="6:5"
+      sizes="(max-width: 800px) 100vw, 500px"
+      loading="eager"
+      format="avif"
+    />
+  </div>
+  <div>
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight xl:tracking-tighter">
+      {TEXT.H1}
+    </h1>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      {TEXT.DESCRIPTION}
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        href={LINKS.ACTION.href}
+        class="flex gap-1 items-center justify-center"
+        rel="noopener">
+        {LINKS.ACTION.text}
+      </Link>
+    </div>
+  </div>
+</main>

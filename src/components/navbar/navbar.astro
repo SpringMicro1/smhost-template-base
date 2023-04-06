@@ -1,0 +1,75 @@
+---
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { NAVBAR } from "config";
+const {LINKS} = NAVBAR;
+
+const menuitems = [
+  {
+    title: "Features",
+    path: "/#features",
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
+  },
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+];
+---
+
+<Container>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-lg"
+          ><span class="font-bold text-slate-800">SpringMicro</span><span
+            class="text-slate-500">Host</span
+          >
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <>
+                <li>
+                  <a
+                    href={item.path}
+                    class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900">
+                    {item.title}
+                  </a>
+                </li>
+              </>
+            ))
+          }
+        </ul>
+        <div class="lg:hidden flex items-center mt-3 gap-4">
+          <Link href={LINKS.LOG_IN.href} style="muted" block size="md">{LINKS.LOG_IN.text}</Link>
+          <Link href={LINKS.SIGN_UP.href} size="md" block>{LINKS.SIGN_UP.text}</Link>
+        </div>
+      </MenuItems>
+    </Astronav>
+    <div>
+      <div class="hidden lg:flex items-center gap-4">
+        <a href={LINKS.LOG_IN.href}>{LINKS.LOG_IN.text}</a>
+        <Link href={LINKS.SIGN_UP.href} size="md">{LINKS.SIGN_UP.text}</Link>
+      </div>
+    </div>
+  </header>
+</Container>
