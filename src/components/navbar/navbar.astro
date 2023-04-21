@@ -3,22 +3,9 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-import { NAVBAR } from "config";
-const {LINKS} = NAVBAR;
+import { BASE } from "config";
 
 const menuitems = [
-  {
-    title: "Features",
-    path: "/#features",
-  },
-  {
-    title: "Pricing",
-    path: "/pricing",
-  },
-  {
-    title: "About",
-    path: "/about",
-  },
   {
     title: "Blog",
     path: "/blog",
@@ -35,9 +22,7 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">SpringMicro</span><span
-            class="text-slate-500">Host</span
-          >
+          ><span class="font-bold text-slate-800">{BASE.COMPANY_NAME}</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
@@ -59,17 +44,7 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href={LINKS.LOG_IN.href} style="muted" block size="md">{LINKS.LOG_IN.text}</Link>
-          <Link href={LINKS.SIGN_UP.href} size="md" block>{LINKS.SIGN_UP.text}</Link>
-        </div>
       </MenuItems>
     </Astronav>
-    <div>
-      <div class="hidden lg:flex items-center gap-4">
-        <a href={LINKS.LOG_IN.href}>{LINKS.LOG_IN.text}</a>
-        <Link href={LINKS.SIGN_UP.href} size="md">{LINKS.SIGN_UP.text}</Link>
-      </div>
-    </div>
   </header>
 </Container>

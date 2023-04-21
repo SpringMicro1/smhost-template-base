@@ -1,18 +1,18 @@
 ---
 import Container from "@components/container.astro";
-import Cta from "@components/cta.astro";
-import Features from "@components/features.astro";
-import Footer from "@components/footer.astro";
-import Hero from "@components/hero.astro";
-import Partners from "@components/partners.astro";
+import Sectionhead from "@components/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
+import { HOME } from "config";
+const { TEXT, LINKS } = HOME;
 ---
 
 <Layout title="">
   <Container>
-    <Hero />
-    <Features />
-    <!-- <Partners /> -->
-    <Cta />
+    <main class="h-96">
+      <Sectionhead>
+        <Fragment slot="title">{TEXT.H1}</Fragment>
+        <Fragment slot="desc">{TEXT.DESCRIPTION}</Fragment>
+      </Sectionhead>
+    </main>
   </Container>
 </Layout>

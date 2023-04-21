@@ -1,19 +1,24 @@
+---
+import {FOOTER} from "../config"
+const {TEXT} = FOOTER
+---
+
+
 <footer class="my-20">
   <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} SpringMicro, LLC. All rights reserved.
+    Copyright © {new Date().getFullYear()} {TEXT.COMPANY_NAME}. All rights reserved.
   </p>
   <!--
     Can we ask you a favor 🙏
     Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
   -->
   <p class="text-center text-xs text-slate-500 mt-1">
-    Astroship template by <a
-      href="https://web3templates.com"
+    Powered by <a
+      href="https://springmicrohost.com"
       target="_blank"
       rel="noopener"
       class="hover:underline">
-      Web3Templates
+      SpringMicroHost
     </a>
   </p>
 </footer>

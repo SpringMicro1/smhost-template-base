@@ -5,35 +5,37 @@ import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import Button from "@components/ui/button.astro";
 import Contactform from "@components/contactform.astro";
+import { BASE, CONTACT } from "config";
+const { TEXT, LINKS } = CONTACT;
 ---
 
 <Layout title="Contact">
   <Container>
     <Sectionhead>
       <Fragment slot="title">Contact</Fragment>
-      <Fragment slot="desc">We are here to help.</Fragment>
+      <Fragment slot="desc">{TEXT.DESCRIPTION}</Fragment>
     </Sectionhead>
 
     <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
       <div>
-        <h2 class="font-medium text-2xl text-gray-800">Contact SpringMicroHost</h2>
+        <h2 class="font-medium text-2xl text-gray-800">Contact {BASE.COMPANY_NAME}</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Have something to say? We are here to help. Fill out the form, send
-          an email, or call us on the phone.
+          {TEXT.PARAGRAPH}
         </p>
         <div class="mt-5">
           <div class="flex items-center mt-2 space-x-2 text-gray-600">
             <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span></span>
+            <span>{TEXT.ADDRESS}</span>
           </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
             <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="kgibson@springmicro.com"
-              >kgibson@springmicro.com</a
+              href={"mailto:" + LINKS.EMAIL.href}
+              >{LINKS.EMAIL.content}</a
             >
           </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+1 (555) 555 5555">+1 (555) 555 5555</a
-            >
+            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" />
+            <a href={"tel:" + LINKS.PHONE.href}>
+              {LINKS.PHONE.href}
+            </a>
           </div>
         </div>
       </div>

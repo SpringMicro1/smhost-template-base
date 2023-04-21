@@ -3,6 +3,7 @@ import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource/inter/variable.css";
+import { BASE } from "../config"
 
 export interface Props {
   title: string;
@@ -18,8 +19,8 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "SpringMicroHost"
-  : "SpringMicroHost - Building the Web of the Future Today";
+  ? title + " | " + BASE.COMPANY_NAME
+  : BASE.META_TITLE_DEFAULT;
 ---
 
 <!DOCTYPE html>
@@ -29,30 +30,19 @@ const makeTitle = title
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
-    <!-- twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
-        card: "summary_large_image",
-      }} -->
     <SEO
       title={makeTitle}
-      description="SpringMicroHost provides web services such as hosting, site editing, blog, eCommerce, forms, and more."
+      description={BASE.META_DESCRIPTION}
       canonical={canonicalURL}
-      
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `SpringMicroHost`,
+          title: BASE.OPENGRAPH_TITLE,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: BASE.OPENGRAPH_IMAGE_ALT_TEXT,
         },
       }}
     />

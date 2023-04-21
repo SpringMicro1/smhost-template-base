@@ -1,8 +1,7 @@
 {
-  "name": "springmicrohost",
+  "name": "smhost-template-base",
   "type": "module",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

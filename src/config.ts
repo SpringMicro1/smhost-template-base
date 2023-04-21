@@ -1,48 +1,19 @@
-const SIGN_IN_LINK = "https://bridge.springmicro.com/sign-in";
-const REGISTER_LINK = "https://bridge.springmicro.com/onboarding/register";
-
-export const NAVBAR = {
-  TEXT: {},
-  LINKS: {
-    LOG_IN: {
-      href: SIGN_IN_LINK,
-      text: "Log in",
-    },
-    SIGN_UP: {
-      href: REGISTER_LINK,
-      text: "Sign up",
-    },
-  },
-  IMAGES: {},
+export const BASE = {
+  COMPANY_NAME: "My Company Name",
+  META_TITLE_DEFAULT: "My Company Name - Just a Generic Company",
+  META_DESCRIPTION:
+    "My Company Name provides generic services to generic customers.",
+  OPENGRAPH_TITLE: "My Company Name",
+  OPENGRAPH_IMAGE_ALT_TEXT: "My Company Name Homepage Screenshot",
 };
 
-export const HERO = {
+export const HOME = {
   TEXT: {
-    H1: "Simple web hosting for your business",
+    H1: "Coming Soon!",
     DESCRIPTION:
-      "At SpringMicroHost, we'll worry about your website so you can worry about your business. Pick a template, insert your content, and leave the rest to us. Our customer service representatives are ready to help.",
+      "This site is under construction. Please return at a later date.",
   },
-  LINKS: {
-    ACTION: {
-      href: REGISTER_LINK,
-      text: "Get Started",
-    },
-  },
-  IMAGES: {},
-};
-
-export const CTA = {
-  TEXT: {
-    H2: "Build modern websites.",
-    DESCRIPTION:
-      "Take your online presence to the next level by using our hosting platform.",
-  },
-  LINKS: {
-    ACTION: {
-      href: REGISTER_LINK,
-      text: "Get Started",
-    },
-  },
+  LINKS: {},
   IMAGES: {},
 };
 
@@ -56,96 +27,30 @@ export const BLOG = {
   IMAGES: {},
 };
 
-export const FEATURES = [
-  {
-    title: "Bring Your Old Stuff",
-    description:
-      "Website transferring should be easy. Move old files to us and we will help get them up and running on our platform.",
-    icon: "bx:bxs-briefcase",
+export const CONTACT = {
+  TEXT: {
+    DESCRIPTION: "Get in touch.",
+    PARAGRAPH:
+      "Have something to say? We are here to help. Fill out the form, send an email, or call us on the phone.",
+    ADDRESS: "123 Example Street; My Place, NY 00000",
   },
-  {
-    title: "2x Faster Load Times",
-    description:
-      "SpringMicroHost leverages modern site building technologies that eliminate bloat and result in blazing-fast load times.",
-    icon: "bx:bxs-timer",
+  LINKS: {
+    EMAIL: {
+      href: "me@example.com",
+      content: "me@example.com",
+    },
+    PHONE: {
+      href: "+12015555555",
+      content: "+1 (201) 555-5555",
+    },
   },
-  {
-    title: "Easy Content Editing",
-    description:
-      "Manage your content with our simple editor and live preview features. Support is available for complex needs.",
-    icon: "bx:bxs-edit",
-  },
-  {
-    title: "Supplementary Services",
-    description:
-      "SpringMicroHost is rolling out services like forms, blog, and eCommerce. Be among the first to try them at a discount.",
-    icon: "bx:bxs-grid",
-  },
-  {
-    title: "SEO Enabled",
-    description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
-  },
-  {
-    title: "Support",
-    description:
-      "Get help from actual customer service representatives. They will communicate with you one-on-one to meet your needs.",
-    icon: "bx:bxs-user",
-  },
-];
+  IMAGES: {},
+};
 
-export const PRICING = [
-  {
-    name: "Personal",
-    price: "$3.00/mo",
-    popular: false,
-    description: "All the basics for starting a single small website.",
-    features: [
-      "Single Website",
-      "Starter Instances",
-      "SSL Certificate",
-      "Email Support",
-      "Template Customizations",
-    ],
-    action: {
-      href: REGISTER_LINK,
-      text: "Get Started",
-    },
+export const FOOTER = {
+  TEXT: {
+    COMPANY_NAME: "My Company Name, LLC",
   },
-  {
-    name: "Pro",
-    price: "$4.17/mo",
-    popular: true,
-    description: "All the basics for starting/hosting up to 3 websites.",
-    features: [
-      "Everything in Personal",
-      "Multiple Websites",
-      "SSL Certificates",
-      "Personal Manager",
-      "Backups",
-    ],
-    action: {
-      href: REGISTER_LINK,
-      text: "Get Started",
-    },
-  },
-  {
-    name: "Enterprise",
-    price: "Get a Quote",
-    popular: false,
-    description: "For custom web development needs.",
-    features: [
-      "Large Instances",
-      "SSL Certificates",
-      "Email and Phone Support",
-      "Personal Manager",
-      "Backups",
-      "Custom Web Development",
-    ],
-    action: {
-      href: "/contact",
-      text: "Contact Us",
-    },
-  },
-];
+  LINKS: {},
+  IMAGES: {},
+};

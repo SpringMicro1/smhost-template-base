@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
+import { emitESMImage } from "astro/dist/assets";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -47,7 +48,9 @@ const { Content } = await entry.render();
         </div>
       </div>
     </div>
-
+    <div class="mt-6">
+      <img class="mx-auto" src={entry.data.image.src} alt={entry.data.image.alt} />
+    </div>
     <div class="mx-auto prose prose-lg mt-6">
         <Content />
     </div>
