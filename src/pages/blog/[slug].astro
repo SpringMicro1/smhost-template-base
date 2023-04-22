@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import { emitESMImage } from "astro/dist/assets";
+import Heading from "@components/ui/heading.astro";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -24,10 +25,11 @@ const { Content } = await entry.render();
       <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
         {entry.data.category}
       </span>
-      <h1
-        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
+      <Heading
+        component="h1"
+        class="font-bold lg:tracking-tight mt-1 lg:leading-tight">
         {entry.data.title}
-      </h1>
+      </Heading>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
         <span class="text-gray-400">
           {entry.data.author}
@@ -49,17 +51,18 @@ const { Content } = await entry.render();
       </div>
     </div>
     <div class="mt-6">
-      <img class="mx-auto" src={entry.data.image.src} alt={entry.data.image.alt} />
+      <img class="mx-auto rounded-md" src={entry.data.image.src} alt={entry.data.image.alt} />
     </div>
     <div class="mx-auto prose prose-lg mt-6">
-        <Content />
+      <Content />
     </div>
     <div class="text-center mt-8">
       <a
         href="/blog"
         class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-        >← Back to Blog</a
       >
+        ← Back to Blog
+      </a>
     </div>
   </Container>
 </Layout>

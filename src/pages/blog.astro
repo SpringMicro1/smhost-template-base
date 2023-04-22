@@ -5,6 +5,7 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import { BLOG } from "config";
+import Heading from "@components/ui/heading.astro";
 const {TEXT} = BLOG;
 
 // Filter blog entries with 'draft: false' & date before current date
@@ -51,9 +52,9 @@ publishedBlogEntries.sort(function (a, b) {
                       {blogPostEntry.data.category}
                     </span>
 
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    <Heading component="h2" class="font-semibold leading-snug tracking-tight mt-1 ">
                       {blogPostEntry.data.title}
-                    </h2>
+                    </Heading>
 
                     <div class="flex gap-2 mt-3">
                       <span class="text-gray-400">
