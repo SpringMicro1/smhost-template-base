@@ -10,7 +10,7 @@
     "astro": "astro",
     "enable": "node enable-page.js --enable",
     "disable": "node enable-page.js --disable",
-    "vercelinit": "sh vercelinit.sh"
+    "prep": "sh firstdeployprep.sh"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
