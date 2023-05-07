@@ -6,8 +6,11 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "init": "sh disable-all.sh && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "enable": "node enable-page.js --enable",
+    "disable": "node enable-page.js --disable"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
