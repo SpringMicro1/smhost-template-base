@@ -6,11 +6,11 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "vercelinit": "sh init.sh",
     "preview": "astro preview",
     "astro": "astro",
     "enable": "node enable-page.js --enable",
-    "disable": "node enable-page.js --disable"
+    "disable": "node enable-page.js --disable",
+    "vercelinit": "sh vercelinit.sh"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
