@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "buildlocal": "astro build && pm2 --name ss serve ./dist && node screenshot.js ./public && pm2 stop ss",
-    "build": "astro build && pm2 --name ss serve ./dist && node screenshot.js ./dist && pm2 stop ss",
+    "build": "astro build && pm2 --name ss serve ./dist && node screenshot.js ./dist && pm2 stop ss && vercel domains ls",
     "preview": "astro preview",
     "astro": "astro",
     "enable": "node enable-page.js --enable",
