@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "buildlocal": "astro build && pm2 --name ss serve ./dist && node screenshot.js ./public && pm2 stop ss",
+    "build": "astro build && pm2 --name ss serve ./dist && node screenshot.js ./dist && pm2 stop ss",
     "preview": "astro preview",
     "astro": "astro",
     "enable": "node enable-page.js --enable",
     "disable": "node enable-page.js --disable",
-    "prep": "sh firstdeployprep.sh"
+    "prep": "sh firstdeployprep.sh",
+    "stop": "pm2 stop ss"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
+    "playwright": "^1.33.0",
+    "pm2": "^5.3.0",
     "sharp": "^0.31.3"
   }
 }
