@@ -4,6 +4,7 @@ import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import { BASE } from "config";
+import disabled from "disabled.json";
 
 const menuitems = [
   {
@@ -14,7 +15,7 @@ const menuitems = [
     title: "Contact",
     path: "/contact",
   },
-];
+].filter((page) => !disabled.includes(page.path));
 ---
 
 <Container>

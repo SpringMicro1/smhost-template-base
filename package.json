@@ -5,9 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "buildlocal": "astro build && npm run buildlocal --prefix node_modules/smhost-template-scripts",
+    "build": "astro build && npm run build --prefix node_modules/smhost-template-scripts",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "enable": "npm run enable --prefix node_modules/smhost-template-scripts",
+    "disable": "npm run disable --prefix node_modules/smhost-template-scripts",
+    "prep": "npm run prep --prefix node_modules/smhost-template-scripts",
+    "stop": "npm run stop --prefix node_modules/smhost-template-scripts"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
@@ -24,6 +29,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "smhost-template-scripts": "^0.1.2"
   }
 }
