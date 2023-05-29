@@ -1,15 +1,20 @@
 ---
 import Button from "./ui/button.astro";
-const res = await fetch(`${import.meta.env.PUBLIC_FORMS_API_URL}/v1/forms/${import.meta.env.PUBLIC_CONTACT_FORM_ID}`, {
-  headers: {
-    "x-api-key": import.meta.env.PUBLIC_API_KEY!
-  }
-})
-const form = await res.json()
+let form = {}
+if (!import.meta.env.PUBLIC_IN_CONTAINER) {
+  const res = await fetch(`${import.meta.env.PUBLIC_FORMS_API_URL}/v1/forms/${import.meta.env.PUBLIC_CONTACT_FORM_ID}`, {
+    headers: {
+      "x-api-key": import.meta.env.PUBLIC_API_KEY!
+    }
+  })
+  form = await res.json()
+} else {
+  form = JSON.parse(import.meta.env.PUBLIC_CONTACT_FORM_JSON)
+}
 ---
 
 <form
-  action={`${import.meta.env.PUBLIC_FORMS_API_URL}/v1/forms/contact/${import.meta.env.PUBLIC_CONTACT_FORM_ID}/submit?callback-url=${import.meta.env.PUBLIC_URL}/contact`}
+  action={import.meta.env.PUBLIC_IN_CONTAINER ? "/contact/?success=true" : `${import.meta.env.PUBLIC_FORMS_API_URL}/v1/forms/contact/${import.meta.env.PUBLIC_CONTACT_FORM_ID}/submit?callback-url=${import.meta.env.PUBLIC_URL}/contact`}
   method="POST"
 >
   <div id="result" class="hidden mb-3 px-6 py-3 text-green-700 border-green-700 bg-green-100 border-2 rounded text-center"></div>
