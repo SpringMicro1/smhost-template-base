@@ -15,7 +15,7 @@ if (!import.meta.env.PUBLIC_IN_CONTAINER) {
 
 <form
   action={import.meta.env.PUBLIC_IN_CONTAINER ? "/contact/?success=true" : `${import.meta.env.PUBLIC_FORMS_API_URL}/v1/forms/contact/${import.meta.env.PUBLIC_CONTACT_FORM_ID}/submit?callback-url=${import.meta.env.PUBLIC_URL}/contact`}
-  method="POST"
+  method={import.meta.env.PUBLIC_IN_CONTAINER ? "GET" : "POST"}
 >
   <div id="result" class="hidden mb-3 px-6 py-3 text-green-700 border-green-700 bg-green-100 border-2 rounded text-center"></div>
   {form.fieldsets.map(f => <fieldset>
@@ -41,7 +41,7 @@ if (!import.meta.env.PUBLIC_IN_CONTAINER) {
 <script is:inline>
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
-  console.log('params', params);
+  // console.log('params', params);
   if (params["data"]) {
     const data = JSON.parse(atob(params["data"]))
     Object.entries(data).forEach(([k,v]) => {
