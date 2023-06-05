@@ -1,6 +1,6 @@
 ---
 import Button from "./ui/button.astro";
-let form = {}
+let form = {} as any
 if (!import.meta.env.PUBLIC_IN_CONTAINER) {
   const res = await fetch(`${import.meta.env.PUBLIC_FORMS_API_URL}/v1/forms/${import.meta.env.PUBLIC_CONTACT_FORM_ID}`, {
     headers: {
@@ -9,7 +9,7 @@ if (!import.meta.env.PUBLIC_IN_CONTAINER) {
   })
   form = await res.json()
 } else {
-  form = JSON.parse(import.meta.env.PUBLIC_CONTACT_FORM_JSON)
+  form = JSON.parse(import.meta.env.PUBLIC_CONTACT_FORM_JSON) 
 }
 ---
 
